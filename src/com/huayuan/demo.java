@@ -1,5 +1,7 @@
 package com.huayuan;
 
+import java.util.Random;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -8,7 +10,6 @@ import android.graphics.Paint.Style;
 import android.util.AttributeSet;
 import android.view.View;
 
-//github≤‚ ‘bolexiong
 
 public class demo extends View {
 	Paint mPaint = new Paint();
@@ -22,6 +23,24 @@ public class demo extends View {
 		mPaint.setStyle(Style.FILL);
 		mPaint.setStrokeWidth(2f);
 		mPaint.setAntiAlias(true);
+		
+//		new Thread(new Runnable() {
+//			
+//			@Override
+//			public void run() {
+//				while (true) {
+//					try {
+//						Thread.sleep(1000);
+//					} catch (InterruptedException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//					update(new Random().nextInt(100));
+//					
+//				}
+//			}
+//		}).start();
+		
 		if(this.isInEditMode())
 			return;
 	}
@@ -52,6 +71,6 @@ public class demo extends View {
 			lineValue[i] = lineValue[i+1];
 		}
 		lineValue[lineValue.length-1]= v;
-		invalidate();
+		//invalidate();
 	}
 }

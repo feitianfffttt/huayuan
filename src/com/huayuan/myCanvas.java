@@ -1,5 +1,7 @@
 package com.huayuan;
 
+import java.util.Random;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -23,9 +25,26 @@ public class myCanvas extends View {
 		mPaint.setAntiAlias(true);
 		mPaint.setStyle(Style.STROKE);
 		mPaint.setTextSize(20);
-//		if(this.isInEditMode()){
-//			return;
-//		} //测试方法是不是会有问题
+		// if(this.isInEditMode()){
+		// return;
+		// } //测试方法是不是会有问题
+
+		// new Thread(new Runnable() {
+		//
+		// @Override
+		// public void run() {
+		// while (true) {
+		// try {
+		// Thread.sleep(1000);
+		// } catch (InterruptedException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
+		// update(new Random().nextInt(100));
+		//
+		// }
+		// }
+		// }).start();
 	}
 
 	public myCanvas(Context context, AttributeSet attrs) {
@@ -35,32 +54,35 @@ public class myCanvas extends View {
 	public myCanvas(Context context) {
 		this(context, null);
 	}
-	
-	public void update(int wen){
-		lineValue = wen ;
+
+	public void update(int wen) {
+		lineValue = wen;
 		invalidate();
 	}
+
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
-//		float cx = this.getWidth();
-//		float cy = this.getHeight();
-//		Log.i("AAA", cx+"");
-//		Log.i("AAA", cy+"");
-		float cx = this.getWidth()/2;
-		float cy = this.getHeight()/2;
-		float radius = this.getHeight()/3;
+		// float cx = this.getWidth();
+		// float cy = this.getHeight();
+		// Log.i("AAA", cx+"");
+		// Log.i("AAA", cy+"");
+		float cx = this.getWidth() / 2;
+		float cy = this.getHeight() / 2;
+		float radius = this.getHeight() / 3;
 		canvas.drawCircle(cx, cy, radius, mPaint);
-		if (lineValue>max)
+		if (lineValue > max)
 			mPaint.setColor(Color.RED);
 		mPaint.setStyle(Style.FILL);
-		RectF oval = new RectF(cx-radius,cy-radius,cx+radius,cy+radius);
-		float sweepAngle = (float)lineValue/100*360;
-		//Log.i("AAA", sweepAngle+"");
-//		System.out.println(sweepAngle);
-	    canvas.drawArc(oval, 0, sweepAngle, true, mPaint);
-	    canvas.drawText(lineValue+"%", cx+radius/2, cy-radius/10, mPaint);
-	    mPaint.setColor(Color.YELLOW);
-	    mPaint.setStyle(Style.STROKE);
+		RectF oval = new RectF(cx - radius, cy - radius, cx + radius, cy
+				+ radius);
+		float sweepAngle = (float) lineValue / 100 * 360;
+		// Log.i("AAA", sweepAngle+"");
+		// System.out.println(sweepAngle);
+		canvas.drawArc(oval, 0, sweepAngle, true, mPaint);
+		canvas.drawText(lineValue + "%", cx + radius / 2, cy - radius / 10,
+				mPaint);
+		mPaint.setColor(Color.YELLOW);
+		mPaint.setStyle(Style.STROKE);
 	}
 }
