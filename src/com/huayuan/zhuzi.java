@@ -30,6 +30,7 @@ public class zhuzi extends View {
 		mPaint.setStrokeWidth(2f);
 		mPaint.setAntiAlias(true);
 		mPaint.setStyle(Style.FILL);
+		
 		mPaint.setTextSize(15);
 		if (this.isInEditMode()) // 避免布局文件报错！
 			return;

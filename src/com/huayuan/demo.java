@@ -8,6 +8,8 @@ import android.graphics.Paint.Style;
 import android.util.AttributeSet;
 import android.view.View;
 
+//github≤‚ ‘bolexiong
+
 public class demo extends View {
 	Paint mPaint = new Paint();
 	int jian;
